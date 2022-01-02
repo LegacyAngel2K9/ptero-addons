@@ -1,37 +1,42 @@
-## Welcome to GitHub Pages
+## Welcome to Pterodactyl Addons
 
-You can use the [editor on GitHub](https://github.com/LegacyAngel2K9/ptero-addons/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+The following addons have been added to Pterodactyl
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+[Discord Role Manager](https://pterodactylmarket.com/resource/342)<br>
+[Artifacts Changer](https://pterodactylmarket.com/resource/271)<br>
+[Minecraft Mods Installer](https://pterodactylmarket.com/resource/257)<br>
+[Minecraft Spigot and Bukkit Plugins Installer](https://pterodactylmarket.com/resource/326)<br>
+[More Buttons](https://pterodactylmarket.com/resource/325)<br>
+[FastDownload](https://pterodactylmarket.com/resource/163)
 
-### Markdown
+### Update & Install
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
+Run this box first
 ```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+cd /var/www/pterodactyl
+php artisan down
+curl -L https://github.com/pterodactyl/panel/releases/latest/download/panel.tar.gz | tar -xzv
+chmod -R 755 storage/* bootstrap/cache
+composer install --no-dev --optimize-autoloader
+yes
+yes
+yes
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+Run this box second
+```markdown
+curl -L https://github.com/LegacyAngel2K9/ptero-addons/archive/refs/tags/v1.0.0.tar.gz | tar -xzv
+yarn build:production
+php artisan route:clear
+php artisan cache:clear
+php artisan view:clear
+php artisan config:clear
+php artisan migrate --seed --force
+chown -R www-data:www-data *
+php artisan queue:restart
+php artisan up
+```
 
-### Jekyll Themes
+### Support
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/LegacyAngel2K9/ptero-addons/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Having Troubles? contact me on discord: [Legacy DEV Team](https://discord.gg/D6zhBfuTKw) just ping me (Angel)
