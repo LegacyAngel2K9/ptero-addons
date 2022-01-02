@@ -1,0 +1,65 @@
+[
+    {
+    "name": "Name of plugin",
+    "downloadlink": "Need to be a direct download link",
+    "filename": "Name of file",
+    "links": [
+        {
+        "discussion": "Link of the plugins"
+        }
+    ],
+    "file": [
+        {
+        "type": ".jar"
+        }
+    ],
+    "icon": [
+        {
+        "url": "Icon url of plugin"
+        }
+    ],
+    "tag": "Plugin description"
+    },
+    {
+        "name": "Name of plugin",
+        "downloadlink": "Need to be a direct download link",
+        "filename": "Name of file",
+        "links": [
+            {
+            "discussion": "Link of the plugins"
+            }
+        ],
+        "file": [
+            {
+            "type": ".jar"
+            }
+        ],
+        "icon": [
+            {
+            "url": "Icon url of plugin"
+            }
+        ],
+        "tag": "Plugin description"
+    },
+    {
+        "name": "Clearlag",
+        "downloadlink": "https://media.forgecdn.net/files/3198/633/Clearlag.jar",
+        "filename": "Clearlag.jar",
+        "links": [
+            {
+            "discussion": "https://dev.bukkit.org/projects/clearlagg"
+            }
+        ],
+        "file": [
+            {
+            "type": ".jar"
+            }
+        ],
+        "icon": [
+            {
+            "url": "https://media.forgecdn.net/avatars/73/934/636163819268473934.png"
+            }
+        ],
+        "tag": "A new perfect way to clear common lag in your server!"
+    }
+]
