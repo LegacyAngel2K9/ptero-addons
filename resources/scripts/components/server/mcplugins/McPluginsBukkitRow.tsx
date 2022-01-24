@@ -228,7 +228,7 @@ export default ({ minecraftPlugins, className, uuid, custom }: Props) => {
                 {Installed === 1 &&
                 <Button
                     type={'button'}
-                    color={'orange'}
+                    color={'red'}
                     css={tw`ml-2`}
                     onClick={() => reinstall()}
                     title="Reinstall"
