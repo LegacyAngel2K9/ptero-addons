@@ -137,8 +137,8 @@ class ClientController extends ClientApiController
         return $addons;
     }
      
-     public function resolveRedirect(Request $request)
-     {
+    public function resolveRedirect(Request $request)
+    {
     $ch = curl_init();
  
     curl_setopt($ch, CURLOPT_URL, $request->url);
@@ -151,33 +151,33 @@ class ClientController extends ClientApiController
     curl_close($ch);
     
     return $redirectedUrl;
-     }	
+    }	
 
     public function artifacts(Request $request)
-{
-$headers = ['User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.81 Safari/537.36'];
-             
-$pteroaddon = Http::accept('application/json')->get('https://gameversion.bagou450.com/fivem/versionlistblind.json')->object();
-    if($pteroaddon->verified === false) {
-        throw new DisplayException('Pirated (This addon was pirated or not updated me on discord Bagou450#0666 or Yotapaki#8953 for talk about that)');
+    {
+    $headers = ['User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.81 Safari/537.36'];
+                
+    $pteroaddon = Http::accept('application/json')->get('https://gameversion.bagou450.com/fivem/versionlistblind.json')->object();
+        if($pteroaddon->verified === false) {
+            throw new DisplayException('Pirated (This addon was pirated or not updated me on discord Bagou450#0666 or Yotapaki#8953 for talk about that)');
+        }
+    $tablo_liens=array();
+    $url = 'https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/';
+    $pattern = '#(?:src|href|path|xmlns(?::xsl)?)\s*=\s*(?:"|\')\s*(.+)?\s*(?:"|\')#Ui';
+    $subject = file_get_contents($url);
+    preg_match_all($pattern, $subject, $matches, PREG_PATTERN_ORDER);
+    foreach($matches[1] as $match)
+    {
+        if (str_starts_with($match, './')) {
+            $artifactslink = str_replace("./", "", $match);
+            $artifactnumber = strtok($artifactslink, '-');
+            $tablo_liens[] = array(
+                "url"=>$artifactslink, 
+                "number"=>$artifactnumber,
+                "version"=>$artifactnumber
+            );
+        }
     }
- $tablo_liens=array();
- $url = 'https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/';
- $pattern = '#(?:src|href|path|xmlns(?::xsl)?)\s*=\s*(?:"|\')\s*(.+)?\s*(?:"|\')#Ui';
- $subject = file_get_contents($url);
-   preg_match_all($pattern, $subject, $matches, PREG_PATTERN_ORDER);
- foreach($matches[1] as $match)
-   {
-     if (str_starts_with($match, './')) {
-         $artifactslink = str_replace("./", "", $match);
-         $artifactnumber = strtok($artifactslink, '-');
-         $tablo_liens[] = array(
-             "url"=>$artifactslink, 
-             "number"=>$artifactnumber,
-             "version"=>$artifactnumber
-        );
-     }
- }
- return $tablo_liens;
-}
+    return $tablo_liens;
+    }
 }

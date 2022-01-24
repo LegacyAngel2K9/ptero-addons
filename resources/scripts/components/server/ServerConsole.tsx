@@ -8,7 +8,7 @@ import ServerDetailsBlock from '@/components/server/ServerDetailsBlock';
 import isEqual from 'react-fast-compare';
 import PowerControls from '@/components/server/PowerControls';
 import MoreButtons from '@/components/server/MoreButtons';
-import { EulaModalFeature, JavaVersionModalFeature } from '@feature/index';
+import { EulaModalFeature, JavaVersionModalFeature, GSLTokenModalFeature, PIDLimitModalFeature, SteamDiskSpaceFeature } from '@feature/index';
 import ErrorBoundary from '@/components/elements/ErrorBoundary';
 import Spinner from '@/components/elements/Spinner';
 
@@ -62,6 +62,9 @@ const ServerConsole = () => {
                 <React.Suspense fallback={null}>
                     {eggFeatures.includes('eula') && <EulaModalFeature/>}
                     {eggFeatures.includes('java_version') && <JavaVersionModalFeature/>}
+                    {eggFeatures.includes('gsl_token') && <GSLTokenModalFeature/>}
+                    {eggFeatures.includes('pid_limit') && <PIDLimitModalFeature/>}
+                    {eggFeatures.includes('steam_disk_space') && <SteamDiskSpaceFeature/>}
                 </React.Suspense>
             </div>
         </ServerContentBlock>

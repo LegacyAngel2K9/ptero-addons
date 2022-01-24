@@ -79,7 +79,7 @@ export default ({ minecraftMcMods, className }: Props) => {
                 >
                     {formatDistanceToNow(new Date(minecraftMcMods.dateReleased), { includeSeconds: true, addSuffix: true })}
                 </p>
-                <p css={tw`text-2xs text-neutral-500 uppercase mt-1`}>Last update</p>
+                <p css={tw`text-2xs text-neutral-500 uppercase mt-1`}>Sortie il y a</p>
             </div>
             <div css={tw`flex-1 md:flex-none md:w-48 mt-4 md:mt-0 md:ml-1 md:text-center`}>
                 <Select

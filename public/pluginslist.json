@@ -42,7 +42,7 @@
         "tag": "Plugin description"
     },
     {
-        "name": "Clearlag",
+        "name": "Clearlagg",
         "downloadlink": "https://media.forgecdn.net/files/3198/633/Clearlag.jar",
         "filename": "Clearlag.jar",
         "links": [
@@ -60,6 +60,6 @@
             "url": "https://media.forgecdn.net/avatars/73/934/636163819268473934.png"
             }
         ],
-        "tag": "A new perfect way to clear common lag in your server!"
+        "tag": "A new perfect way to clear common lagg in your server!"
     }
 ]

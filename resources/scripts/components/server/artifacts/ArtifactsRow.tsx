@@ -17,11 +17,7 @@ interface Props {
     fivemartifacts: any;
     className?: string;
 }
-//Buyer Username: LegacyAngel2K9
-//Buyer ID: 2888
-//Resource Version: 1.9
-//Resource Name: Pterodactyl Addon [1.X] - Artifacts Changer
-//Transaction ID: 7W343408WL6021843 | Only Paid Resources
+
 export default ({ fivemartifacts, className }: Props) => {
     const uuid = ServerContext.useStoreState(state => state.server.data!.uuid);
     const [ loading, setLoading ] = useState(false);
@@ -29,7 +25,9 @@ export default ({ fivemartifacts, className }: Props) => {
     const { addFlash } = useStoreActions((actions: Actions<ApplicationStore>) => actions.flashes);
     const file = 'https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/' + fivemartifacts.url;
     const [ modalVisible, setModalVisible ] = useState(false);
-
+    if (fivemartifacts.type === 'optional') {
+        console.log(fivemartifacts.type);
+    }
     const installArtifacts = () => {
         if (file === null || file === undefined) return;
 
@@ -93,6 +91,16 @@ export default ({ fivemartifacts, className }: Props) => {
                         </div>
                         <a href={file} css={tw`ml-4 break-words truncate`}>
                             Artifact : {fivemartifacts.number}
+                            {fivemartifacts.type === 'recommended' &&
+                                <p>
+                                    <span css={tw`bg-green-500 py-1 px-2 rounded text-green-50 text-xs`}>Latest recommended</span>
+                                </p>
+                            }
+                            {fivemartifacts.type === 'optional' &&
+                                 <p>
+                                     <span css={tw`bg-yellow-800 py-1 px-2 rounded text-green-50 text-xs`}>Latest optional</span>
+                                 </p>
+                            }
                         </a>
                     </div>
                 </div>

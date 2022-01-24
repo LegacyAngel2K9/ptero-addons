@@ -123,7 +123,8 @@ return [
     */
     'cdn' => [
         'cache_time' => 60,
-        'url' => 'https://cdn.pterodactyl.io/releases/latest.json',
+        //'url' => 'https://cdn.pterodactyl.io/releases/latest.json',
+        'url' => 'https://raw.githubusercontent.com/LegacyAngel2K9/ptero-addons/main/latest.json',
     ],
 
     /*
